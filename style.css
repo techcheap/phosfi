@@ -1,10 +1,6 @@
 body{
-    background-color: azure;
-}
-
-#click{
-    transition-duration: 500ms;
-}
-#click:hover{
-    border: 5px solid black ;
+    margin: 0;
+    padding:0;
+    top:0;
+    left: 0;
 }
