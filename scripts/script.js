@@ -40,7 +40,7 @@ var firebaseRef = firebase.database();
 
 // qr readin part
 
-let scanner = new Instascan.Scanner({ div: document.getElementById('preview'), mirror:false });
+let scanner = new Instascan.Scanner({ video: document.getElementById('preview'), mirror:false });
 Instascan.Camera.getCameras().then(function (cameras) {
     if (cameras.length > 0) {
         scanner.start(cameras[1]);
