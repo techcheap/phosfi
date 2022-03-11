@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCPL - Player - Deputy Teacher</title>
+    <link rel="stylesheet" href ="style.css"/>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+    <script src="scripts/html5-qrcode.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <!--<h1 id="name"></h1>-->
+
+    <!--QR code generator-->
+
+    <!--<div id="option">
+        <div id="btn1" class="active">&#8230;</div>
+        <div id="btn2">&#9974;</div>
+    </div>
+
+    <div id="main">
+        <div id="box1">
+            <div id="inputs">
+                <input type="text" placeholder="Enter your text" id="data"/>
+                <div id="msg">Hit enter to generate QR code.</div>
+            </div>
+
+            <div id="outputbox">
+                <img src="Qr code.png"/>
+            </div>
+        </div>
+        <div id="box2">
+
+        </div>
+    </div>-->
+
+    <!--QR code reader-->
+    <video id="preview"></video>
+</body>
+
+
+<script src="scripts/instascan.min.js"></script>
+
+<script src="scripts/script.js"></script>
+<!--<script type="text/javascript">
+    $("#btn2").click(function () {
+        $("#btn2").addClass("active");
+    });
+
+    $("#stopbtn").click(function () {
+        $("#startbtn img").show();
+        $("#stopbtn").hide();
+        var videoEl = document.getElementById("preview");
+        stream = videoEl.srcObject;
+        tracks = stream.getTracks();
+        tracks.forEach(function (track) {
+            track.stop();
+        });
+        videoEl.srcObject = null;
+    });
+
+    $("#startbtn").click(function () {
+        $("#startbtn img").hide();
+        $("#stopbtn").show();
+        var scanner = new Instascan.Scanner({ video: document.getElementById("preview"), scanPeriod: 5, mirror: false })
+        scanner.addListener('scan', function (content) {
+            $("#img2").text(content);
+        });
+        Instascan.Camera.getCameras().then(function (cameras) {
+            if (cameras.length > 0) {
+                scanner.start(cameras[0]);
+                $('[name="options"]').on("change", function () {
+                    if ($(this).val() == 1) {
+                        if (cameras[0] != "") {
+                            scanner.start(cameras[0]);
+                        }
+                        else {
+                            alert("No front camera found!");
+                        }
+                    }
+                    else if ($(this).val() == 2) {
+                        if (cameras[1] != "") {
+                            scanner.start(cameras[1]);
+                        }
+                        else {
+                            alert("No back camera found!")
+                        }
+                    }
+                    else {
+                        alert("No camera found!");
+                    }
+                }).catch(function (e) {
+                    alert(e);
+                })
+            }
+        })
+    });
+</script>-->
+
+
+</html>
