@@ -105,6 +105,9 @@ screenshotButton.onclick = video.onclick = function () {
     canvas.getContext("2d").drawImage(video, 0, 0);
     // Other browsers will fall back to image/png
     console.log(canvas.toDataURL("image/png"));
+    window.stream.getTracks().forEach(track => {
+        track.stop();
+    });
 };
 
 //screenshot success
