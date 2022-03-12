@@ -1,5 +1,4 @@
 //image recognition
-const myname = document.getElementById("name")
 const imageUpload = document.getElementById('imageUpload')
 
 Promise.all([
@@ -16,7 +15,12 @@ async function start() {
     const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.8)
     let image
     let canvas
-    imageUpload.style.display="block";
+    document.querySelectorAll("label").forEach(function(element){
+        element.style.display="block";
+    });
+    document.querySelectorAll("#scanload").forEach(function(element){
+        element.style.display="none";
+    });
     imageUpload.addEventListener('change', async () => {
         if (image) image.remove()
         if (canvas) canvas.remove()
@@ -28,7 +32,7 @@ async function start() {
         const resizedDetections = faceapi.resizeResults(detections, displaySize)
         const results = resizedDetections.map(d => faceMatcher.findBestMatch(d.descriptor))
         results.forEach((result, i) => {
-            myname.innerHTML = result.toString()
+            console.log(result.toString());
         })
     })
 }

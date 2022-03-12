@@ -10,16 +10,74 @@
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
 </head>
 <body>
-    <div id="1">
-        <input type="number"/>
+    <div id="step0" class="back">
+        <h1 id="title">Prepare yourself to escape!</h1>
+        <div class="lds-ripple">
+            <div></div>
+            <div></div>
+        </div>
     </div>
-    <h1 id="name" style="color: blue;"></h1>
-    <input type="file" accept="image/*" id="imageUpload" capture>
-    
+    <div id="step1" class="back">
+        <h1>Enter the code:</h1>
+        <input id="input1" type="number" placeholder="1234"/>
+        <button id="button1">Submit</button>
+    </div>
+    <div id="step2" class="back">
+        <h1>Find all the presidents!</h1>
+        <label>
+            <input type="file" accept="image/*" id="imageUpload" capture>
+            SCAN
+        </label>
+        <div class="lds-ripple" id="scanload">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div id="step3" class="back">
+        <h1>Enter the missing word:</h1>
+        <input id="input3" type="text" placeholder="missing word"/>
+        <button id="button3">Submit</button>
+    </div>
+    <div id="step4" class="back">
+        <h1>Enter the code:</h1>
+        <input id="input4" type="number" placeholder="1234"/>
+        <button id="button4">Submit</button>
+    </div>
+    <div id="step5" class="back">
+        <h1>Find it!</h1>
+        <label>
+            <input type="file" accept="image/*" id="imageUpload" capture>
+            SCAN
+        </label>
+        <div class="lds-ripple" id="scanload">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div id="step6" class="back">
+        <h1>Enter the number plate:</h1>
+        <input id="input6" type="text" placeholder="AA-123-AA"/>
+        <button id="button6">Submit</button>
+    </div>
+    <div id="step7" class="back">
+        <h1>Enter the corresponding code:</h1>
+        <input id="input7" type="number" placeholder="1234"/>
+        <button id="button7">Submit</button>
+    </div>
+    <div id="step8" class="back">
+        <h1>Enter the morse code:</h1>
+        <input id="input8" type="text" placeholder="... ___ ... (SOS)"/>
+        <button id="button8">Submit</button>
+    </div>
+    <div id="step9" class="back">
+        <h1>Congratulations!</h1>
+        <h2>You were freed by your friends who saw your message!</h2>
+    </div>
 </body>
 
 <script defer src="face-api.min.js"></script>
 <script defer src="firebase.js"></script>
+<script defer src="script.js"></script>
 <script defer src="ireco.js"></script>
 
 
