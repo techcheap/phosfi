@@ -28,9 +28,6 @@ async function start() {
         const resizedDetections = faceapi.resizeResults(detections, displaySize)
         const results = resizedDetections.map(d => faceMatcher.findBestMatch(d.descriptor))
         results.forEach((result, i) => {
-            const box = resizedDetections[i].detection.box
-            const drawBox = new faceapi.draw.DrawBox(box, { label: result.toString() })
-            drawBox.draw(canvas)
             myname.innerHTML = result.toString()
         })
     })
