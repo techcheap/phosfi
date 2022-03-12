@@ -42,6 +42,7 @@ const canvas = document.createElement("canvas");
 
 navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
     video.srcObject = stream;
+    video.play();
 });
 
 screenshotButton.onclick = video.onclick = function () {
