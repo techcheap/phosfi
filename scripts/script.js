@@ -22,6 +22,8 @@ var firebaseRef = firebase.database();
 //});
 
 // qr readin part
+
+//verifying if ok
 function hasGetUserMedia() {
     return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
 }
@@ -31,16 +33,25 @@ if (hasGetUserMedia()) {
     alert("getUserMedia() is not supported by your browser");
 }
 
+//getting all the elements
+const video = document.querySelector("video");
+const screenshotButton = document.querySelector("#screenshot")
+const img = document.querySelector("img")
+const canvas = document.createElement("canvas");
+const play = document.querySelector("#play")
 var videoSelect = document.querySelector('select#videoSource');
 
+//getting camera change
 videoSelect.onchange = getStream;
 getStream().then(getDevices).then(gotDevices);
 
+//devices list
 function getDevices() {
     // AFAICT in Safari this only gets default devices until gUM is called :/
     return navigator.mediaDevices.enumerateDevices();
 }
 
+//listing all devices
 function gotDevices(deviceInfos) {
     window.deviceInfos = deviceInfos; // make available to console
     console.log('Available input and output devices:', deviceInfos);
@@ -54,6 +65,7 @@ function gotDevices(deviceInfos) {
     }
 }
 
+//stream listing
 function getStream() {
     if (window.stream) {
         window.stream.getTracks().forEach(track => {
@@ -68,6 +80,7 @@ function getStream() {
         then(gotStream).catch(handleError);
 }
 
+//stream chosing
 function gotStream(stream) {
     window.stream = stream; // make stream available to console
     videoSelect.selectedIndex = [...videoSelect.options].
@@ -75,28 +88,17 @@ function gotStream(stream) {
     video.srcObject = stream;
 }
 
+//error handling
 function handleError(error) {
     console.error('Error: ', error);
 }
 
-const constraints = {
-    video: true,
-};
-
-const video = document.querySelector("video");
-const screenshotButton = document.querySelector("#screenshot")
-const img = document.querySelector("img")
-const canvas = document.createElement("canvas");
-const play = document.querySelector("#play")
-
-navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
-    video.srcObject = stream;
-});
-
+//play button
 play.onclick = function(){
     video.play();
 }
 
+//canvas printing
 screenshotButton.onclick = video.onclick = function () {
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
@@ -105,7 +107,7 @@ screenshotButton.onclick = video.onclick = function () {
     console.log(canvas.toDataURL("image/png"));
 };
 
+//screenshot success
 function handleSuccess(stream) {
     screenshotButton.disabled = false;
-    video.srcObject = stream;
 }
