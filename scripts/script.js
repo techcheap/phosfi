@@ -39,11 +39,15 @@ const video = document.querySelector("video");
 const screenshotButton = document.querySelector("#screenshot")
 const img = document.querySelector("img")
 const canvas = document.createElement("canvas");
+const play = document.querySelector("#play")
 
 navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
     video.srcObject = stream;
-    video.play();
 });
+
+play.onclick = function(){
+    video.play();
+}
 
 screenshotButton.onclick = video.onclick = function () {
     canvas.width = video.videoWidth;
