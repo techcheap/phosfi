@@ -52,5 +52,5 @@ Instascan.Camera.getCameras().then(function (cameras) {
     console.error(e);
 });
 scanner.addListener('scan', function (content) {
-    console.log(content);
+    document.getElementById("name").innerHTML = content;
 });
