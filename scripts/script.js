@@ -21,36 +21,38 @@ var firebaseRef = firebase.database();
 //    name.innerHTML = fname;
 //});
 
-//qr generating part
-//var qrcode = new QRCode("outpubox");
-
-//function makeCode(){
-//    var input = document.getElementById("data");
-
-//    qrcode.makeCode(input.value);
-//}
-
-//$("#data").on('blur', function(){
-//    makeCode;
-//}).on('keydown', function(e){
-//    if(e.keyCode == 13){
-//        makeCode();
-//    }
-//});
-
 // qr readin part
+function hasGetUserMedia() {
+    return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
+}
+if (hasGetUserMedia()) {
+    // Good to go!
+} else {
+    alert("getUserMedia() is not supported by your browser");
+}
 
-let scanner = new Instascan.Scanner({ video: document.getElementById('preview'), mirror:false, facingMode:"environment" });
-Instascan.Camera.getCameras().then(function (cameras) {
-    if (cameras.length > 0) {
-        scanner.start(cameras[1]);
-        document.getElementById("name").innerHTML = cameras.length;
-    } else {
-        console.error('No cameras found.');
-    }
-}).catch(function (e) {
-    console.error(e);
+const constraints = {
+    video: true,
+};
+
+const video = document.querySelector("video");
+const screenshotButton = document.querySelector("#screenshot")
+const img = document.querySelector("img")
+const canvas = document.createElement("canvas");
+
+navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
+    video.srcObject = stream;
 });
-scanner.addListener('scan', function (content) {
-    document.getElementById("name").innerHTML = content;
-});
+
+screenshotButton.onclick = video.onclick = function () {
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    canvas.getContext("2d").drawImage(video, 0, 0);
+    // Other browsers will fall back to image/png
+    console.log(canvas.toDataURL("image/png"));
+};
+
+function handleSuccess(stream) {
+    screenshotButton.disabled = false;
+    video.srcObject = stream;
+}
