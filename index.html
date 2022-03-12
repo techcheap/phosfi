@@ -8,27 +8,16 @@
     <link rel="stylesheet" href ="style.css"/>
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
-    <script src="scripts/html5-qrcode.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <h1 id="name" style="color: blue;"></h1>
-
-    <!--Image reader-->
-    <div class="select">
-        <label for="videoSource">Video source: </label><select id="videoSource"></select>
-    </div>
-    <device type="media" onchange="update(this.data)"></device>
-    <video playsinline></video></br>
-    <img src="">
-    <button id="screenshot">screenshot</button>
-    <button id="play">Play</button>  
+    <input type="file" accpt="image/*" id="imageUpload" capture>
+    
 </body>
 
-
-<script src="scripts/instascan.min.js"></script>
-
-<script src="scripts/script.js"></script>
+<script defer src="face-api.min.js"></script>
+<script defer src="script.js"></script>
+<script defer src="ireco.js"></script>
 
 
 </html>
