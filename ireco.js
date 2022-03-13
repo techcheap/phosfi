@@ -153,13 +153,6 @@ async function start() {
                 firebaseRef.ref("codes").update(code)
                 alert("Woodrow Wilson found!")
             }
-            else if (res.indexOf("Lady Liberty") > -1) {
-                const code = {
-                    lliberty: true
-                }
-                firebaseRef.ref("codes").update(code)
-                alert("Lady Liberty found!")
-            }
             else {
                 alert("Unknown person!")
             }
