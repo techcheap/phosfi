@@ -1,5 +1,5 @@
 body{
-    background: linear-gradient(#BBD2C5, #536976, #292E49);
+    background-color: #0B2545;
     background-repeat: no-repeat;
     height: 100vh;
     overflow: hidden;
@@ -7,12 +7,12 @@ body{
 
 .back{
     position: absolute;
-    top: 50%;
     left: 50%;
-    height: 75vh;
+    bottom: 0;
+    height: 80vh;
     width: 75vw;
-    background: linear-gradient(#cbcaa5, #334d50);
-    transform: translate(-50%,-50%);
+    background-color: #134074;
+    transform: translate(-50%);
     border-radius: 25px;
     padding: 20px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
@@ -20,6 +20,9 @@ body{
     justify-content: center;
     flex-direction: column;
     display: flex;
+    margin-bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 h1{
@@ -27,13 +30,13 @@ h1{
     font-size: 2em;
     margin-top: 35%;
     margin-bottom: 20%;
-    color: #292E49;
+    color: #EEF4ED;
     text-align: center;
 }
 h2{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1em;
-    color: #BBD2C5;
+    color: #EEF4ED;
     text-align: center;
 }
 input{
@@ -42,7 +45,7 @@ input{
     font-size: 2em;
     text-align: center;
     background-color: transparent;
-    color: #292E49;
+    color: #EEF4ED;
     outline: none;
     border: none;
     border-bottom: 2px solid #BBD2C5;
@@ -54,11 +57,11 @@ input{
 
 button{
     position: absolute;
-    background: linear-gradient(90deg,#0F2027, #203A43, #2C5364);
+    background: #0B2545;
     font-size: 1.3em;
     margin-top: 50px;
     margin-bottom: 25px;
-    color: #BBD2C5;
+    color: #EEF4ED;
     border: none;
     border-radius: 5px;
     height: 30px;
@@ -117,6 +120,15 @@ button{
     background-color: transparent;
     
 }
+#imageUpload1{
+    display: none;
+    color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform:translate(-90%, -50%);
+    background-color: transparent;
+}
 label{
     display: none;
     position: absolute;
@@ -124,11 +136,11 @@ label{
     left: 50%;
     transform: translate(-50%,-50%);
     text-align: center;
-    background: linear-gradient(90deg,#0F2027, #203A43, #2C5364);
+    background: #0B2545;
     font-size: 1.3em;
     margin-top: 50px;
     margin-bottom: 25px;
-    color: #BBD2C5;
+    color: #EEF4ED;
     border: none;
     border-radius: 5px;
     height: 30px;

@@ -1,17 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="style.css" />
     <title>OCPL - Host - Deputy Teacher</title>
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
 </head>
-<body>
-    <h1 id="name"></h1>
 
-    <script src="scripts/script.js"></script>
+<body>
+    <div id="step0" class="div">
+        <video controls>
+            <source src="video.mp4" type="video/mp4" />
+        </video>
+    </div>
+    <div id="step1" class="div">
+        <h1>You found a note:</h1>
+        <center>
+            <div id="note">
+                <h2>Number of chromosomes.</br>
+                The year Dolly was cloned.</br>
+                Sum it up!</h2>
+            </div>
+        </center>
+    </div>
+    <div id="step2" class="div">
+        <h2>Find the 16 presidents in the room and scan them!</h2>
+        <h1 id="prescan">Number of presidents scanned: 0/16</h1>
+    </div>
+    <div id="step3" class="div">
+        <h2>With the 16 pictures of presidents your found this sentence. Fill the blank with the correct word to express
+            the condition!</h2>
+        <h1>You will not find all the code ...... each one of you looks carefully around him!</h1>
+    </div>
+    <div id="step4" class="div">
+        <h2>Fill in the 34 codes that you found!</h2>
+        <h1 id="codefill">Number of codes found: 0/34</h1>
+    </div>
+    <div id="step5" class="div">
+        <h2>Put the codes that you found from the smallest to the biggest to get your next instruction!</h2>
+        <div class="tiny">
+            <h2 class="small">
+                1359 G </br>
+                4978 L </br>
+                1912 f </br>
+                7420 e </br>
+                2464 d </br>
+                2623 L </br>
+                4581 d </br>
+                4704 y </br>
+                1857 o
+            </h2>
+            <h2 class="small">
+                5086 i </br>
+                5317 b </br>
+                5340 e </br>
+                5591 r </br>
+                5596 t </br>
+                7389 d </br>
+                6567 u </br>
+                6732 t
+            </h2>
+            <h2 class="small">
+                6965 s </br>
+                7226 i </br>
+                5609 y </br>
+                6384 o </br>
+                2044 i </br>
+                2051 n </br>
+                7727 o </br>
+                7730 f </br>
+            </h2>
+            <h2 class="small">
+                9617 s </br>
+                8526 e </br>
+                8590 c </br>
+                8768 l </br>
+                8778 a </br>
+                8959 s </br>
+                7864 t </br>
+                8314 h </br>
+                2862 a </br>
+            </h2>
+        </div>
+    </div>
+    <div id="step6" class="div">
+        <h2>By scanning Lady Liberty, you found a new note. Find the corresponding number plate.</h2>
+        <center>
+            <div id="note">
+                <h2>If Martin Luther King was a physic's teacher, he would have said: "I have a dream of a better car
+                    than my Clio 3!"</h2>
+            </div>
+        </center>
+    </div>
+    <div id="step7" class="div">
+        <h2>Find the corresponding code the number plate</h2>
+        <div class="tiny">
+            <h2 class="small">
+                BD-645-GF 2536</br>
+                JK-758-IP 4564</br>
+                JK-645-GF 1584</br>
+                BD-758-IP 4369</br>
+                JU-010-TH 2005</br>
+                BD-236-IP 1456</br>
+                ND-236-GF 7593</br>
+                AZ-236-SY 4236<SY /br>
+
+            </h2>
+            <h2 class="small">
+                BD-645-IP 7156</br>
+                ND-758-GF 2578</br>
+                AZ-758-IP 6395</br>
+                AZ-758-PS 1978</br>
+                BD-645-SY 1456</br>
+                ND-236-GF 3548</br>
+                ND-236-SY 3659</br>
+                ND-645-IP 8605</br>
+
+            </h2>
+            <h2 class="small">
+                ND-758-GF 4263</br>
+                ND-758-IP 7452</br>
+                BD-645-SY 0235</br>
+                AZ-758-SY 5079</br>
+                JK-236-GF 1630</br>
+                BD-645-IP 2063</br>
+                ND-236-SY 7045</br>
+                ND-236-IP 9208</br>
+            </h2>
+            <h2 class="small">
+                ND-645-SY 4056</br>
+                JK-236-GF 8230</br>
+                ND-645-SY 4321</br>
+                ND-236-IP 1460</br>
+                ND-645-SY 1589</br>
+                JK-645-GF 4220</br>
+                AZ-758-SY 2550</br>
+                JK-758-GF 4260</br>
+            </h2>
+        </div>
+    </div>
+    <div id="step8" class="div">
+        <h2>Using the last code, you unlocked a small chest in which you found this note and the Morse code. Write the message using the Morse code</h2>
+        <center>
+            <div id="note">
+                <h2>KKK jailed me</h2>
+                <img src="morse.png" height="500px"/>
+            </div>
+        </center>
+    </div>
+    <div id="step9" class="div">
+        <h1>Congratulations!</h1>
+        <h2>Your friends saw your message and came to free you!</h2>
+    </div>
+
+
+    <script defer src="firebase.js"></script>
+    <script defer src="script.js"></script>
 </body>
+
 </html>

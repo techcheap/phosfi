@@ -1,0 +1,28 @@
+body{
+    background-color: #0B2545;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+button{
+    transition-duration: 0.5s;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #134074;
+    color: #EEF4ED;
+    margin: 2.5%;
+    box-shadow: 2px 2px 2px #eef4ed7a;
+}
+button:hover{
+    background-color: #EEF4ED;
+    color: #134074;
+}

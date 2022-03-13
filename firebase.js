@@ -12,39 +12,3 @@ var firebaseConfig = {
 //Initialize database
 firebase.initializeApp(firebaseConfig)
 //FirebaseRef used to get the database
-var firebaseRef = firebase.database();
-const allDiv = document.querySelectorAll(".back");
-var step
-var activeName
-var activatedname
-var selectedElement
-
-firebaseRef.ref().on("value", snapshot=>{
-    var snap = snapshot.val();
-    step = snap.step;
-    allDiv.forEach(function(unit){
-        unit.style.display="none"
-    })
-    activeName = "step" + step.toString();
-    activatedname = activeName.toString()
-    selectedElement = document.getElementById(activatedname)
-    console.log(selectedElement);
-    selectedElement.style.display = "block"
-    const btnname = "button" + step.toString();
-    const inpname = "input" + step.toString();
-    if (step != 2 || step != 5) {
-        //document.getElementById(btnname).addEventListener("click", function () {
-        //    const enteredcode = document.getElementById(inpname).value;
-        //    if (enteredcode == 1234) {
-        //        step = step + 1;
-        //        fstep = { step: step }
-        //        firebaseRef.ref().update(fstep);
-        //    }
-        //    else {
-        //        alert("Incorrect!")
-        //    }
-        //})
-    }else{
-        console.log("not on a good one")
-    }
-});

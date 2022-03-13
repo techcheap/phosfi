@@ -1,22 +1,44 @@
-//configure firebase
-var firebaseConfig = {
-    apiKey: "AIzaSyB2gzeEAsM-Tp-nZW1ypYx4WPoHEI83__Q",
-    authDomain: "ocpl-a04ed.firebaseapp.com",
-    databaseURL: "https://ocpl-a04ed-default-rtdb.firebaseio.com/",
-    projectId: "ocpl-a04ed",
-    storageBucket: "ocpl-a04ed.appspot.com",
-    messagingSenderId: "199314678237",
-    appId: "1:199314678237:web:f578a12444167abdd39634",
-    measurementId: "G-EZPF38WNSH"
-};
-//Initialize database
-firebase.initializeApp(firebaseConfig)
-//FirebaseRef used to get the database
 var firebaseRef = firebase.database();
+var step = 0
+const allDiv = document.querySelectorAll(".div");
+var presnum = 0
+var codenum = 0
 
-firebaseRef.ref().on("value", snapshot=>{
-    var name = document.getElementById("name");
-    var snap = snapshot.val();
-    var fname = snap.name;
-    name.innerHTML = fname;
-});
+firebaseRef.ref().on("value", snapshot => {
+    presnum = 0
+    var presfound = "Number of presidents scanned: " + presnum.toString() + "/16";
+    document.getElementById("prescan").innerHTML = presfound;
+    codenum = 0
+    var codefound = "Number of codes found: " + codenum.toString() + "/34";
+    document.getElementById("codefill").innerHTML = codefound;
+    const snap = snapshot.val()
+    step = snap.step
+    const pres = snap.codes
+    const code = snap.numbers
+    console.log(pres)
+    allDiv.forEach(function (unit) {
+        unit.style.display = "none"
+    })
+    activeName = "step" + step.toString()
+    activatedname = activeName.toString()
+    selectedElement = document.getElementById(activatedname)
+    selectedElement.style.display = "block"
+    for (var pre in pres) {
+        if (pres[pre] == true) {
+            presnum = presnum + 1
+            presfound = "Number of presidents scanned: " + presnum.toString() + "/16";
+            document.getElementById("prescan").innerHTML = presfound;
+        } else {
+
+        }
+    }
+    for (var num in code) {
+        if (code[num] == true) {
+            codenum = codenum + 1
+            codefound = "Number of codes found: " + codenum.toString() + "/34";
+            document.getElementById("codefill").innerHTML = codefound;
+        } else {
+
+        }
+    }
+})
