@@ -32,15 +32,19 @@ firebaseRef.ref().on("value", snapshot=>{
     selectedElement.style.display = "block"
     const btnname = "button" + step.toString();
     const inpname = "input" + step.toString();
-    document.getElementById(btnname).addEventListener("click", function () {
-        const enteredcode = document.getElementById(inpname).value;
-        if (enteredcode == 1234) {
-            step = step + 1;
-            fstep = {step : step}
-            firebaseRef.ref().update(fstep);
-        }
-        else {
-            alert("Incorrect!")
-        }
-    })
+    if (step != 2 || step != 5) {
+        //document.getElementById(btnname).addEventListener("click", function () {
+        //    const enteredcode = document.getElementById(inpname).value;
+        //    if (enteredcode == 1234) {
+        //        step = step + 1;
+        //        fstep = { step: step }
+        //        firebaseRef.ref().update(fstep);
+        //    }
+        //    else {
+        //        alert("Incorrect!")
+        //    }
+        //})
+    }else{
+        console.log("not on a good one")
+    }
 });
